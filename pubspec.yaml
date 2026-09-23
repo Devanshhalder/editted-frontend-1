@@ -1,0 +1,58 @@
+name: karigarkart
+description: A polished local-first artisan marketplace demo.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.11.0+2
+  record: ^6.1.2
+  http: 1.6.0
+  image_picker: ^1.2.3
+  speech_to_text: ^7.4.0
+  fl_chart: ^1.2.0
+  flutter_image_compress: ^2.5.1
+  image: ^4.10.1
+  path_provider: ^2.1.5
+  workmanager: ^0.10.10
+  shared_preferences: ^2.5.3
+  connectivity_plus: ^6.1.5
+  flutter_tts: ^4.2.5
+  sensors_plus: ^7.1.0
+  hive_ce: ^2.20.0
+  hive_ce_flutter: ^2.3.4
+  cached_network_image: ^4.0.0
+  lottie: ^3.6.1
+  share_plus: ^11.1.0
+  qr_flutter: ^4.1.0
+  url_launcher: ^6.3.2
+  google_mlkit_text_recognition: ^0.17.1
+  local_auth: ^3.0.2
+  app_links: ^6.4.1
+  pdf: ^3.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.8
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/1789124007216.png
+    - assets/loginbackground.jpeg
+    - assets/s1.png
+    - assets/s2.png
+    - assets/s3.png
+    - assets/karigarkart_splash_full_logo.png
+    - assets/karigarkart_android12_full_logo.png
+    - assets/karigarkart_launcher.png
+    - assets/karigarkart_launcher_foreground.png
+    - assets/karigarkart_login_logo.png

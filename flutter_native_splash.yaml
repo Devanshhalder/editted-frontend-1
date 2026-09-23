@@ -1,0 +1,16 @@
+flutter_native_splash:
+  color: "#FFF9F3"
+  color_dark: "#171412"
+  image: assets/karigarkart_splash_full_logo.png
+  image_dark: assets/karigarkart_splash_full_logo.png
+  fullscreen: false
+
+  android_12:
+    color: "#FFF9F3"
+    color_dark: "#171412"
+    image: assets/karigarkart_android12_full_logo.png
+    image_dark: assets/karigarkart_android12_full_logo.png
+    icon_background_color: "#FFF9F3"
+    icon_background_color_dark: "#171412"
+
+  web: false

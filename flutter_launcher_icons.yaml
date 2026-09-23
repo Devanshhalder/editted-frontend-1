@@ -1,0 +1,10 @@
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/karigarkart_launcher.png"
+  min_sdk_android: 21
+
+  adaptive_icon_background: "#FFF9F3"
+  adaptive_icon_foreground: "assets/karigarkart_launcher_foreground.png"
+
+  remove_alpha_ios: true
