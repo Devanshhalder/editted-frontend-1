@@ -75,7 +75,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 const Expanded(child: _BrandHeader()),
                 _HeaderIconButton(
                   label: _tr(context, 'language'),
-                  child: Text(
+                  child: const Text(
                     'A/अ',
                     style: TextStyle(
                       color: AppColors.forest,

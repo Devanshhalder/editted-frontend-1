@@ -1266,7 +1266,8 @@ class _VoiceRecordingScreenState extends State<VoiceRecordingScreen> {
                       children: [
                         Text(
                           _tr(context, 'createMyListing'),
-                          style: TextStyle(
+                          style: const TextStyle(
+                            color: Colors.white,
                             fontSize: 15,
                             fontWeight: FontWeight.w800,
                           ),
@@ -1274,6 +1275,7 @@ class _VoiceRecordingScreenState extends State<VoiceRecordingScreen> {
                         SizedBox(width: 9),
                         Icon(
                           Icons.arrow_forward_rounded,
+                          color: Colors.white,
                           size: 19,
                         ),
                       ],

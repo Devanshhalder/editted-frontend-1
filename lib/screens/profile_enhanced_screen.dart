@@ -68,15 +68,8 @@ class ProfileEnhancedScreen extends StatelessWidget {
                       label: const Text('Udyam Help'),
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => _clearCache(context),
-                      icon: const Icon(Icons.delete_sweep_outlined, size: 18),
-                      style: OutlinedButton.styleFrom(foregroundColor: AppColors.clay),
-                      label: const Text('Clear Cache'),
-                    ),
-                  ),
+
+
                 ],
               ),
             ),

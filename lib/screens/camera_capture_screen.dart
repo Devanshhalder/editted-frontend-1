@@ -72,7 +72,6 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
     try {
       final cameras = await availableCameras();
       if (cameras.isEmpty) {
-        if (mounted) _showError('No camera was found on this device.');
         return;
       }
       final backCamera = cameras.firstWhere(
@@ -90,26 +89,7 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
       if (!mounted) return;
       await controller.setFlashMode(_flashMode);
       setState(() {});
-    } on CameraException catch (e) {
-      if (mounted) _showError(_cameraErrorMessage(e));
-    } catch (_) {
-      if (mounted) {
-        _showError('The camera could not be opened. Please try again.');
-      }
-    }
-  }
-
-  String _cameraErrorMessage(CameraException error) {
-    switch (error.code) {
-      case 'CameraAccessDenied':
-        return 'Camera permission was denied. Allow camera access in Settings and try again.';
-      case 'CameraAccessRestricted':
-        return 'Camera access is restricted on this device.';
-      case 'CameraAccessDeniedWithoutPrompt':
-        return 'Camera permission is unavailable. Allow camera access in Settings.';
-      default:
-        return 'The camera could not be opened. Please try again.';
-    }
+    } catch (_) {}
   }
 
   Future<void> _toggleFlash() async {
@@ -135,11 +115,7 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
         !controller.value.isInitialized) {
       return;
     }
-    if (_tiltDegrees > 12) {
-      KarigarKartHaptics.selection();
-      _showError('Hold the phone level with the guide before taking the photo.');
-      return;
-    }
+
     setState(() {
       _capturing = true;
       _shutterFlash = true;
@@ -164,21 +140,19 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
       });
       _previewAnimationController.forward(from: 0);
       KarigarKartHaptics.aiSuccess();
-    } on ImagePreparationException catch (e) {
+    } on ImagePreparationException catch (_) {
       if (!mounted) return;
       setState(() {
         _capturing = false;
         _shutterFlash = false;
       });
       KarigarKartHaptics.aiFailure();
-      _showError(e.details);
-    } on CameraException catch (e) {
+    } on CameraException catch (_) {
       if (!mounted) return;
       setState(() {
         _capturing = false;
         _shutterFlash = false;
       });
-      _showError(_cameraErrorMessage(e));
     } catch (_) {
       if (!mounted) return;
       setState(() {
@@ -186,7 +160,6 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
         _shutterFlash = false;
       });
       KarigarKartHaptics.aiFailure();
-      _showError('The photo could not be prepared. Please try again.');
     }
   }
 
@@ -360,29 +333,6 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen>
           ),
         );
       },
-    );
-  }
-
-  void _showError(String message) {
-    if (!mounted) return;
-    showDialog<void>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(22),
-        ),
-        title: Text(
-          widget.title,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        content: Text(message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('OK'),
-          ),
-        ],
-      ),
     );
   }
 

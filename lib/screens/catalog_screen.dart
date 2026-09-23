@@ -186,11 +186,25 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: _SummaryItem(
-                          icon: Icons.storefront_outlined,
-                          value: '$liveCount',
-                          label: tr(context, 'live'),
-                          color: AppColors.forest,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() => selectedFilter = 1);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            decoration: BoxDecoration(
+                              color: selectedFilter == 1
+                                  ? AppColors.forest.withOpacity(0.12)
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: _SummaryItem(
+                              icon: Icons.storefront_outlined,
+                              value: '$liveCount',
+                              label: tr(context, 'live'),
+                              color: AppColors.forest,
+                            ),
+                          ),
                         ),
                       ),
                       Container(
@@ -199,11 +213,25 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         color: colors.outline.withOpacity(.25),
                       ),
                       Expanded(
-                        child: _SummaryItem(
-                          icon: Icons.edit_note_rounded,
-                          value: '$draftCount',
-                          label: tr(context, 'drafts'),
-                          color: AppColors.clay,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() => selectedFilter = 2);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            decoration: BoxDecoration(
+                              color: selectedFilter == 2
+                                  ? AppColors.clay.withOpacity(0.12)
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: _SummaryItem(
+                              icon: Icons.edit_note_rounded,
+                              value: '$draftCount',
+                              label: tr(context, 'drafts'),
+                              color: AppColors.clay,
+                            ),
+                          ),
                         ),
                       ),
                       Container(
@@ -212,11 +240,25 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         color: colors.outline.withOpacity(.25),
                       ),
                       Expanded(
-                        child: _SummaryItem(
-                          icon: Icons.inventory_2_outlined,
-                          value: '${allProducts.length}',
-                          label: tr(context, 'total'),
-                          color: colors.onSurface,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() => selectedFilter = 0);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            decoration: BoxDecoration(
+                              color: selectedFilter == 0
+                                  ? colors.onSurface.withOpacity(0.08)
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: _SummaryItem(
+                              icon: Icons.inventory_2_outlined,
+                              value: '${allProducts.length}',
+                              label: tr(context, 'total'),
+                              color: colors.onSurface,
+                            ),
+                          ),
                         ),
                       ),
                     ],
