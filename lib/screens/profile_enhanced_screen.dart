@@ -93,7 +93,7 @@ class ProfileEnhancedScreen extends StatelessWidget {
                         Icons.support_agent_rounded,
                         size: 18,
                       ),
-                      label: const Text('Udyam Help'),
+                      label: const Text('Help'),
                     ),
                   ),
                 ],
